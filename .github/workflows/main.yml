@@ -21,10 +21,10 @@ jobs:
         cache: 'npm'
     - name: Install dependencies
       run: npm install
-    - name: lint code
-      run: npm run lint:fix
+    - name: Lint Code
+      run: npm run lint
     - name: Run unit test
       run: npm run jest 
-    - name: make build
+    - name: Make build
       run: npm run build
        
