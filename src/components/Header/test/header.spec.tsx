@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import { Header } from '.'
+import { Header } from '../ui/index'
 
 describe('Header Component', () => {
   it('Ensure Header component be render with a correct title', () => {
