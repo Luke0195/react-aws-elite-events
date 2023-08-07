@@ -1,5 +1,4 @@
-import { Header } from '../Header'
-import { Main } from '../Main'
+import { Header, Main } from '@/components'
 import * as S from './styles'
 
 export function App() {
