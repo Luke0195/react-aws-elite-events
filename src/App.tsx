@@ -1,11 +1,12 @@
 import { Header } from './components/Header'
 import { Main } from './components/Main'
+import * as S from './styles'
 
 export function App() {
   return (
-    <div className="w-screen h-screen bg-red-400">
+    <S.Container>
       <Header />
       <Main />
-    </div>
+    </S.Container>
   )
 }
