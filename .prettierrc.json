@@ -1,0 +1,11 @@
+{
+  "tabWidth": 2,
+  "semi": false,
+  "arrowParens": "always",
+  "bracketSameLine": true,
+  "bracketSpacing": true,
+  "editorconfig": true,
+  "endOfLine": "lf",
+  "singleQuote": true,
+  "trailingComma": "es5"
+}
