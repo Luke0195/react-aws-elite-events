@@ -1,3 +1,3 @@
 export * from './App'
-export * from './Header/ui'
+export * from './Header'
 export * from './Main'
