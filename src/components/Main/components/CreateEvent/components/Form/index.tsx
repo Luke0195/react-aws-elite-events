@@ -1,10 +1,9 @@
-import { TextField, Select, MenuItem, Button } from '@mui/material'
-import { InputRoot } from '@/components/From'
+import { Button } from '@mui/material'
+import { InputRoot, SelectRoot } from '@/components/From'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
 import { DatePicker } from '@mui/x-date-pickers/DatePicker'
 import * as S from '../../styles'
-import { Input } from '@/components/From/Input/input'
 
 export function Form() {
   const options = [
@@ -27,24 +26,11 @@ export function Form() {
             className="w-full"
           />
         </InputRoot.InputWrapper>
-        <div className="flex flex-col items-start w-full my-2">
-          <label htmlFor="event_type" className="my-2 font-semibold">
-            Event Type
-          </label>
-          <Select
-            label="'event_type"
-            placeholder="Select Option"
-            className="w-full">
-            {options.map((item) => (
-              <MenuItem
-                className="w-full"
-                key={item.id}
-                value={item.value.toString()}>
-                {item.name}
-              </MenuItem>
-            ))}
-          </Select>
-        </div>
+        <SelectRoot.SelectWrapper>
+          <SelectRoot.SelectLabel> Event Type</SelectRoot.SelectLabel>
+          <SelectRoot.Select options={options} />
+        </SelectRoot.SelectWrapper>
+
         <LocalizationProvider dateAdapter={AdapterDayjs}>
           <label htmlFor="event_type" className="my-2 font-semibold">
             Event Date
