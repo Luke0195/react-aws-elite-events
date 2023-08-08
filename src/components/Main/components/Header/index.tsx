@@ -5,6 +5,7 @@ import AddIcon from '@mui/icons-material/Add'
 
 export function Header() {
   const [open, setOpen] = useState<boolean>(false)
+  console.log(open)
   return (
     <>
       <div className="mt-4 w-full  flex justify-center ">
@@ -28,9 +29,8 @@ export function Header() {
       </div>
       <Modal
         open={open}
-        onClose={setOpen}
         className="max-w-2xl flex items-center justify-center m-auto">
-        <CreateEvent />
+        <CreateEvent onClose={() => setOpen(false)} />
       </Modal>
     </>
   )

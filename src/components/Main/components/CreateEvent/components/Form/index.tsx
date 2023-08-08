@@ -1,13 +1,20 @@
 import { InputRoot, SelectRoot } from '@/components/Form'
+import { CreateEventProps } from '../../shared/protocols'
 import { EventData } from './protocols'
+
 import { schema } from './schema'
 import { parsedData } from './mapper'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as S from '../../styles'
 
-export function Form() {
-  const { register, handleSubmit, getValues } = useForm<EventData>({
+export function Form(props: CreateEventProps) {
+  const { onClose } = props
+  const {
+    register,
+    handleSubmit,
+    formState: { isValid },
+  } = useForm<EventData>({
     mode: 'onBlur',
     resolver: yupResolver(schema()),
     defaultValues: parsedData({} as EventData),
@@ -19,12 +26,9 @@ export function Form() {
     { id: 4, name: 'Product Launches', value: 4 },
   ]
 
-  const values = getValues()
-  console.log(values)
-
   const onSubmit = (data: EventData) => {
-    console.log('Teste')
     console.log(data)
+    onClose()
   }
 
   return (
@@ -38,9 +42,10 @@ export function Form() {
             Event Name
           </InputRoot.InputLabel>
           <InputRoot.Input
+            type="name"
             name="event_name"
             register={register}
-            placeholder="Enter with event Name"
+            placeholder="Enter with event name"
             className="w-full"
           />
         </InputRoot.InputWrapper>
@@ -55,18 +60,23 @@ export function Form() {
 
         <InputRoot.InputWrapper>
           <InputRoot.InputLabel className="mb-2">
-            {' '}
-            Event Name
+            Event Date
           </InputRoot.InputLabel>
           <InputRoot.Input
             name="event_date"
+            type="date"
             register={register}
             placeholder="Enter with event Name"
-            className="w-full"
-            type="date"
           />
         </InputRoot.InputWrapper>
-        <button type="submit"> Salvar </button>
+        <div className="w-full mt-5 flex  items-center justify-end bg-red ">
+          <button
+            type="submit"
+            disabled={!isValid}
+            className="h-11 w-40  font-semibold rounded-md bg-blue-800 text-white disabled:bg-gray-500 disabled:text-gray-700">
+            Submit
+          </button>
+        </div>
       </form>
     </S.Container>
   )

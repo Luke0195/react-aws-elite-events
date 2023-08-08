@@ -1,5 +1,7 @@
 import { Form } from './components'
+import { CreateEventProps } from './shared/protocols'
 
-export function CreateEvent() {
-  return <Form />
+export function CreateEvent(props: CreateEventProps) {
+  const { onClose } = props
+  return <Form onClose={onClose} />
 }
