@@ -1,14 +1,12 @@
-import { useState } from 'react'
 import { TextField, Select, MenuItem, Button } from '@mui/material'
+import { InputRoot } from '@/components/From'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
 import { DatePicker } from '@mui/x-date-pickers/DatePicker'
 import * as S from '../../styles'
+import { Input } from '@/components/From/Input/input'
 
 export function Form() {
-  // @ts-ignore
-  const [selectedElement, setSelectedElement] = useState({})
-
   const options = [
     { id: 1, name: 'Bootcamp', value: 1 },
     { id: 2, name: 'Sport Events', value: 2 },
@@ -22,10 +20,13 @@ export function Form() {
         Create New Event
       </h2>
       <form className="p-8 w-full">
-        <div className="flex flex-col items-start w-full my-2 font-semibold">
-          <label className="w-full my-2 "> Event Name </label>
-          <TextField placeholder="Enter with event name" className="w-full" />
-        </div>
+        <InputRoot.InputWrapper>
+          <InputRoot.InputLabel> Event Name</InputRoot.InputLabel>
+          <InputRoot.Input
+            placeholder="Enter with event Name"
+            className="w-full"
+          />
+        </InputRoot.InputWrapper>
         <div className="flex flex-col items-start w-full my-2">
           <label htmlFor="event_type" className="my-2 font-semibold">
             Event Type
@@ -33,14 +34,12 @@ export function Form() {
           <Select
             label="'event_type"
             placeholder="Select Option"
-            className="w-full"
-            onChange={(e) => setSelectedElement(e)}>
+            className="w-full">
             {options.map((item) => (
               <MenuItem
                 className="w-full"
                 key={item.id}
-                value={item.value.toString()}
-                onClick={() => setSelectedElement(item)}>
+                value={item.value.toString()}>
                 {item.name}
               </MenuItem>
             ))}
