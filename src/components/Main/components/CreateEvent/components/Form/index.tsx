@@ -1,5 +1,4 @@
-import { Button } from '@mui/material'
-import { InputRoot, SelectRoot } from '@/components/From'
+import { InputRoot, SelectRoot, ButtonRoot } from '@/components/Form'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
 import { DatePicker } from '@mui/x-date-pickers/DatePicker'
@@ -32,23 +31,25 @@ export function Form() {
         </SelectRoot.SelectWrapper>
 
         <LocalizationProvider dateAdapter={AdapterDayjs}>
-          <label htmlFor="event_type" className="my-2 font-semibold">
+          <InputRoot.InputLabel
+            htmlFor="event_type"
+            className="my-2 font-semibold">
             Event Date
-          </label>
+          </InputRoot.InputLabel>
           <DatePicker className="w-full" />
         </LocalizationProvider>
       </form>
       <div className="py-4 flex items-start justify-end border-t border-t-gray-100 w-full px-4 gap-4">
-        <Button variant="text" className="bg-transparent ml-5 w-32">
+        <ButtonRoot.Button variant="text" className="bg-transparent ml-5 w-32">
           Cancel
-        </Button>
-        <Button
+        </ButtonRoot.Button>
+        <ButtonRoot.Button
           variant="contained"
           color="primary"
           disabled={true}
           className=" w-32">
           Submit
-        </Button>
+        </ButtonRoot.Button>
       </div>
     </S.Container>
   )
