@@ -6,6 +6,7 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker'
 import * as S from '../../styles'
 
 export function Form() {
+  // @ts-ignore
   const [selectedElement, setSelectedElement] = useState({})
 
   const options = [
@@ -18,7 +19,7 @@ export function Form() {
   return (
     <S.Container className="max-w-xl bg-white d-flex items-center  rounded-sm flex flex-col">
       <h2 className="p-4 bg-blue-600 w-full text-white font-bold text-lg">
-        Create new Event
+        Create New Event
       </h2>
       <form className="p-8 w-full">
         <div className="flex flex-col items-start w-full my-2 font-semibold">
@@ -30,7 +31,6 @@ export function Form() {
             Event Type
           </label>
           <Select
-            value={selectedElement}
             label="'event_type"
             placeholder="Select Option"
             className="w-full"
@@ -39,7 +39,7 @@ export function Form() {
               <MenuItem
                 className="w-full"
                 key={item.id}
-                value={item.value}
+                value={item.value.toString()}
                 onClick={() => setSelectedElement(item)}>
                 {item.name}
               </MenuItem>
