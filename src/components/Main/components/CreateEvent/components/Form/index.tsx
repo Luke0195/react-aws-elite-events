@@ -1,11 +1,10 @@
-import { InputRoot, SelectRoot, ButtonRoot } from '@/components/Form'
+import { InputRoot, SelectRoot } from '@/components/Form'
 import { EventData } from './protocols'
 import { schema } from './schema'
 import { parsedData } from './mapper'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as S from '../../styles'
-import { useEffect } from 'react'
 
 export function Form() {
   const { register, handleSubmit, getValues } = useForm<EventData>({
