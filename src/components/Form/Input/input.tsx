@@ -1,5 +1,15 @@
-import { TextFieldProps, TextField } from '@mui/material'
+import React from 'react'
 
-export function Input(props: TextFieldProps) {
-  return <TextField {...props} />
+interface InputProps
+  extends React.DetailedHTMLProps<
+    React.InputHTMLAttributes<HTMLInputElement>,
+    HTMLInputElement
+  > {}
+export function Input(props: InputProps) {
+  return (
+    <input
+      {...props}
+      className="h-11 border-solid border border-gray-300 w-full radi rounded pl-2 font-normal"
+    />
+  )
 }

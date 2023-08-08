@@ -1,10 +1,20 @@
 import { InputRoot, SelectRoot, ButtonRoot } from '@/components/Form'
+import { EventData } from './protocols'
+import { schema } from './schema'
+import { parsedData } from './mapper'
+import { useForm } from 'react-hook-form'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
 import { DatePicker } from '@mui/x-date-pickers/DatePicker'
+import { yupResolver } from '@hookform/resolvers/yup'
 import * as S from '../../styles'
 
 export function Form() {
+  const form = useForm<EventData>({
+    mode: 'onBlur',
+    resolver: yupResolver(schema()),
+    defaultValues: parsedData({} as EventData),
+  })
   const options = [
     { id: 1, name: 'Bootcamp', value: 1 },
     { id: 2, name: 'Sport Events', value: 2 },
@@ -19,7 +29,9 @@ export function Form() {
       </h2>
       <form className="p-8 w-full">
         <InputRoot.InputWrapper>
-          <InputRoot.InputLabel> Event Name</InputRoot.InputLabel>
+          <InputRoot.InputLabel className="mb-2">
+            Event Name
+          </InputRoot.InputLabel>
           <InputRoot.Input
             placeholder="Enter with event Name"
             className="w-full"
@@ -30,24 +42,23 @@ export function Form() {
           <SelectRoot.Select options={options} />
         </SelectRoot.SelectWrapper>
 
-        <LocalizationProvider dateAdapter={AdapterDayjs}>
-          <InputRoot.InputLabel
-            htmlFor="event_type"
-            className="my-2 font-semibold">
-            Event Date
+        <InputRoot.InputWrapper>
+          <InputRoot.InputLabel className="mb-2">
+            {' '}
+            Event Name
           </InputRoot.InputLabel>
-          <DatePicker className="w-full" />
-        </LocalizationProvider>
+          <InputRoot.Input
+            placeholder="Enter with event Name"
+            className="w-full"
+            type="date"
+          />
+        </InputRoot.InputWrapper>
       </form>
       <div className="py-4 flex items-start justify-end border-t border-t-gray-100 w-full px-4 gap-4">
-        <ButtonRoot.Button variant="text" className="bg-transparent ml-5 w-32">
+        <ButtonRoot.Button className="bg-transparent ml-5 w-32">
           Cancel
         </ButtonRoot.Button>
-        <ButtonRoot.Button
-          variant="contained"
-          color="primary"
-          disabled={true}
-          className=" w-32">
+        <ButtonRoot.Button disabled={true} className=" w-32">
           Submit
         </ButtonRoot.Button>
       </div>

@@ -1,14 +1,14 @@
-import {
-  ButtonProps as MuiButtonProps,
-  Button as MuiButton,
-} from '@mui/material'
 import React from 'react'
 
-interface ButtonProps extends MuiButtonProps {
+interface ButtonProps
+  extends React.DetailedHTMLProps<
+    React.ButtonHTMLAttributes<HTMLButtonElement>,
+    HTMLButtonElement
+  > {
   children: React.ReactNode
 }
 
 export function Button(props: ButtonProps) {
   const { children, ...rest } = props
-  return <MuiButton {...rest}>{children} </MuiButton>
+  return <button {...rest}>{children} </button>
 }
