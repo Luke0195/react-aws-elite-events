@@ -5,4 +5,9 @@ describe('Formatters', () => {
     const result = formmaters.notEmptyStringOfDefault(null)
     expect(result).toBe('-')
   })
+
+  it('Should return the same value is provided', () => {
+    const result = formmaters.notEmptyStringOfDefault('any_value')
+    expect(result).toBe('any_value')
+  })
 })
