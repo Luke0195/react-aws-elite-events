@@ -1,4 +1,4 @@
-import { InputRoot, SelectRoot } from '@/components/Form'
+import { SelectRoot, InputRoot, WarningMessageRoot } from '@/components'
 import { CreateEventProps } from '../../shared/protocols'
 import { EventData } from './protocols'
 
@@ -13,7 +13,7 @@ export function Form(props: CreateEventProps) {
   const {
     register,
     handleSubmit,
-    formState: { isValid },
+    formState: { isValid, errors },
   } = useForm<EventData>({
     mode: 'onBlur',
     resolver: yupResolver(schema()),
@@ -42,20 +42,36 @@ export function Form(props: CreateEventProps) {
             Event Name
           </InputRoot.InputLabel>
           <InputRoot.Input
+            error={Boolean(errors?.event_name)}
             type="name"
             name="event_name"
             register={register}
             placeholder="Enter with event name"
             className="w-full"
           />
+          {errors?.event_name && (
+            <WarningMessageRoot.WarningMessageWrapper type="error">
+              <WarningMessageRoot.WarningMessageContent type="error">
+                {errors.event_name?.message || ' '}
+              </WarningMessageRoot.WarningMessageContent>
+            </WarningMessageRoot.WarningMessageWrapper>
+          )}
         </InputRoot.InputWrapper>
         <SelectRoot.SelectWrapper>
           <SelectRoot.SelectLabel> Event Type</SelectRoot.SelectLabel>
           <SelectRoot.Select
+            error={Boolean(errors?.event_type)}
             options={options}
             name="event_type"
             register={register}
           />
+          {errors?.event_type && (
+            <WarningMessageRoot.WarningMessageWrapper type="error">
+              <WarningMessageRoot.WarningMessageContent type="error">
+                {errors.event_type?.message || ' '}
+              </WarningMessageRoot.WarningMessageContent>
+            </WarningMessageRoot.WarningMessageWrapper>
+          )}
         </SelectRoot.SelectWrapper>
 
         <InputRoot.InputWrapper>
@@ -63,11 +79,19 @@ export function Form(props: CreateEventProps) {
             Event Date
           </InputRoot.InputLabel>
           <InputRoot.Input
+            error={Boolean(errors?.event_date)}
             name="event_date"
             type="date"
             register={register}
-            placeholder="Enter with event Name"
+            placeholder="Enter with event Date"
           />
+          {errors?.event_date && (
+            <WarningMessageRoot.WarningMessageWrapper type="error">
+              <WarningMessageRoot.WarningMessageContent type="error">
+                {errors.event_date?.message || ' '}
+              </WarningMessageRoot.WarningMessageContent>
+            </WarningMessageRoot.WarningMessageWrapper>
+          )}
         </InputRoot.InputWrapper>
         <div className="w-full mt-5 flex  items-center justify-end bg-red ">
           <button

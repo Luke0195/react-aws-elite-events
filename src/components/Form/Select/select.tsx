@@ -10,16 +10,22 @@ interface SelectProps
   options: any[]
   name: 'event_name' | 'event_type' | 'event_date'
   register: UseFormRegister<EventData>
+  error: boolean
 }
 
 export function Select(props: SelectProps) {
-  const { options, name, register } = props
+  const { options, name, register, error } = props
   return (
     <>
       <select
         {...register(name)}
+        defaultValue={'Selecione uma opção'}
         placeholder="Select Option"
-        className="w-full h-11 border-solid border border-gray-300 w-full radi rounded pl-2 font-normal">
+        className={`w-full h-11 border-solid border border-gray-300  radius rounded pl-2 font-normal ${
+          error
+            ? 'border-red-500  placeholder-red-500 text-red-500'
+            : 'border-gray-300 placeholder:bg-gray-300'
+        }`}>
         {options.map((item) => (
           <option
             className="w-full"
