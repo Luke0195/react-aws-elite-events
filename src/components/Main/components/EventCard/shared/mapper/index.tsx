@@ -1,10 +1,11 @@
 import { EventProps } from '../protocols'
+import { notEmptyStringOfDefault, numberOrDefault } from '@/utils/formatters'
 
 export function parsedData(event: EventProps): EventProps {
   return {
     eventId: event.eventId,
-    eventName: event.eventName === null ? '-' : event.eventName,
-    eventDate: event.eventDate === null ? '-' : event.eventDate,
-    eventType: event.eventType === null ? 0 : event.eventType,
+    eventName: notEmptyStringOfDefault(event.eventName),
+    eventDate: notEmptyStringOfDefault(event.eventDate),
+    eventType: numberOrDefault(event.eventType),
   }
 }
