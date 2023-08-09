@@ -1,2 +1,2 @@
 export * from './MainHeader'
-export * from './CreateEvent'
+export * from './Modal/CreateEvent'
