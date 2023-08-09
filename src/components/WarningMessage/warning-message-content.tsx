@@ -2,5 +2,5 @@ import { WarningMessageWrapperProps } from '@/components/WarningMessage/shared/p
 
 export function WarningMessageContent(props: WarningMessageWrapperProps) {
   const { children } = props
-  return <p className="text-red-500">{children} </p>
+  return <p className="text-red-500 text-sm">{children} </p>
 }
