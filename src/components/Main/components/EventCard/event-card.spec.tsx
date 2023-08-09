@@ -29,4 +29,16 @@ describe('EventCard Component', () => {
     render(<EventCard event={parsed} />)
     expect(parsed.eventDate).toBe('-')
   })
+
+  it('Should render a zero if not eventType is provided', () => {
+    const event = {
+      eventId: faker.number.int().toString(),
+      eventName: `Event ${faker.music.songName()}`,
+      eventDate: faker.date.future().toString(),
+      eventType: null,
+    }
+    const parsed = parsedData(event)
+    render(<EventCard event={parsed} />)
+    expect(event.eventType).toBe(0)
+  })
 })
