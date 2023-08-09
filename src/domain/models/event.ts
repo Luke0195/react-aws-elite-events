@@ -1,6 +1,6 @@
 export interface Event {
   eventId: string
   eventName: string
-  eventType: string
+  eventType: number
   eventDate: string
 }

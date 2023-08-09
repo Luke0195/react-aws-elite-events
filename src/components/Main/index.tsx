@@ -1,5 +1,5 @@
-import { MainHeader } from './components'
-import { Checkbox } from '@mui/material'
+import { MainHeader, EventCard } from './components'
+
 import * as S from './styles'
 import { data } from './mocks/events.json'
 
@@ -12,12 +12,7 @@ export function Main() {
           <div className="h-full bg-red-400 flex-1">
             <div className="grid w-full grid-cols-3 gap-3">
               {data.map((item) => (
-                <div key={item.id} className="p-4">
-                  <Checkbox />
-                  <span>Event name: {item.eventName} </span>
-                  <span> Event type: {item.eventType}</span>
-                  <span> Date: {item.eventDate}</span>
-                </div>
+                <EventCard key={item.eventId} event={item} />
               ))}
             </div>
           </div>
