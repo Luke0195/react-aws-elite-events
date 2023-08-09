@@ -86,7 +86,7 @@ export function Form(props: CreateEventProps) {
           <InputRoot.Input
             error={Boolean(errors?.event_date)}
             name="event_date"
-            type="date"
+            type="datetime-local"
             register={register}
             placeholder="Enter with event Date"
           />
