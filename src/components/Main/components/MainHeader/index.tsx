@@ -3,7 +3,7 @@ import { Grid, Modal } from '@mui/material'
 import { CreateEvent } from '../index'
 import AddIcon from '@mui/icons-material/Add'
 
-export function Header() {
+export function MainHeader() {
   const [open, setOpen] = useState<boolean>(false)
   console.log(open)
   return (

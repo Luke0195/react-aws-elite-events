@@ -1,9 +1,9 @@
-import { Header } from './components'
+import { MainHeader } from './components'
 
 export function Main() {
   return (
     <div className="flex-1 flex justify-center px-32 ">
-      <Header />
+      <MainHeader />
     </div>
   )
 }
