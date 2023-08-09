@@ -19,6 +19,7 @@
       "react/react-in-jsx-scope": "off",
       "space-before-function-paren": "off",
       "comma-dangle": "off",
-      "no-unused-vars": "off"
+      "no-unused-vars": "off",
+      "import/no-duplicates": "off"
     }
 }

@@ -1,4 +1,4 @@
-import { EventData } from '@/components/Main/components/CreateEvent/components/Form/protocols'
+import { EventData } from '@/components/Main/components/Modal/CreateEvent/components/Form/protocols'
 import React from 'react'
 import { UseFormRegister } from 'react-hook-form'
 
