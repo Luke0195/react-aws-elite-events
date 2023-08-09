@@ -39,6 +39,6 @@ describe('EventCard Component', () => {
     }
     const parsed = parsedData(event)
     render(<EventCard event={parsed} />)
-    expect(event.eventType).toBe(0)
+    expect(parsed.eventType).toBe(0)
   })
 })
