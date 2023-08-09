@@ -1,4 +1,9 @@
-import { SelectRoot, InputRoot, WarningMessageRoot } from '@/components'
+import {
+  SelectRoot,
+  InputRoot,
+  WarningMessageRoot,
+  ButtonRoot,
+} from '@/components'
 import { CreateEventProps } from '../../shared/protocols'
 import { EventData } from './protocols'
 
@@ -94,12 +99,17 @@ export function Form(props: CreateEventProps) {
           )}
         </InputRoot.InputWrapper>
         <div className="w-full mt-5 flex  items-center justify-end bg-red ">
-          <button
+          <ButtonRoot.Button
+            className="h-11 w-40  font-semibold rounded-md  text-blue-400 disabled:bg-gray-50"
+            onClick={onClose}>
+            Cancel
+          </ButtonRoot.Button>
+          <ButtonRoot.Button
             type="submit"
             disabled={!isValid}
             className="h-11 w-40  font-semibold rounded-md bg-blue-800 text-white disabled:bg-gray-500 disabled:text-gray-700">
             Submit
-          </button>
+          </ButtonRoot.Button>
         </div>
       </form>
     </S.Container>

@@ -17,12 +17,15 @@ describe('Form Component', () => {
     const eventType = screen.getByPlaceholderText(
       'Select Option'
     ) as HTMLInputElement
-
     const submibBtn = screen.getByRole('button', {
       name: /submit/i,
+    }) as HTMLButtonElement
+    const cancelBtn = screen.getByRole('button', {
+      name: /cancel/i,
     }) as HTMLButtonElement
     expect(eventName.value).toBe('')
     expect(eventType.value).toBe('1')
     expect(submibBtn.disabled).toBe(true)
+    expect(cancelBtn.disabled).toBe(false)
   })
 })
