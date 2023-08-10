@@ -1,11 +1,14 @@
-import { EventProps } from '../protocols'
 import { notEmptyStringOfDefault, numberOrDefault } from '@/utils/formatters'
+import { EventProps } from '../protocols'
+import moment from 'moment'
 
 export function parsedData(event: EventProps): EventProps {
   return {
     eventId: event.eventId,
     eventName: notEmptyStringOfDefault(event.eventName),
-    eventDate: notEmptyStringOfDefault(event.eventDate),
+    eventDate: notEmptyStringOfDefault(
+      moment(event.eventDate).format('DD/MM/YYYY hh:MM:ss')
+    ),
     eventType: numberOrDefault(event.eventType),
   }
 }

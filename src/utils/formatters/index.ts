@@ -5,5 +5,5 @@ export function notEmptyStringOfDefault(value: any): string {
 }
 
 export function numberOrDefault(value: any): number {
-  return value === null ? 0 : value
+  return value === null ? 1 : value
 }

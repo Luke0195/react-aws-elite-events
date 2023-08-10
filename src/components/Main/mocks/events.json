@@ -4,13 +4,13 @@
       "eventId": "8f0s80fa8s0f",
       "eventName": "Ir para o show",
       "eventDate": "2023-04-10 11:10",
-      "eventType": 2
+      "eventType": 0
     },
     {
       "eventId": "8f0s80fa8s0f41",
       "eventName": "Ir para o show",
       "eventDate": "2023-04-10 11:10",
-      "eventType": 2
+      "eventType": 1
     },
     {
       "eventId": "8f0s80fa8s0f413",
@@ -22,7 +22,7 @@
       "eventId": "8f0s80fa8s0f416",
       "eventName": "Ir para o show",
       "eventDate": "2023-04-10 11:10",
-      "eventType": 2
+      "eventType": 3
     }
   ]
 }

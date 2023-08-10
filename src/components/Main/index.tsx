@@ -11,7 +11,7 @@ export function Main() {
       <div className="flex-1 flex flex-col  px-32   overflow-hidden ">
         <MainHeader />
         <div className="flex flex-row  bg-blue w-full mt-2 ">
-          <div className="h-full bg-red-400 flex-1">
+          <div className="h-full flex-2">
             <div className="grid w-full grid-cols-3 gap-3">
               {data.map((item) => (
                 <EventCard key={item.eventId} event={item} />
