@@ -12,7 +12,8 @@
     },
     "plugins": [
         "@typescript-eslint",
-        "react"
+        "react",
+        "cypress"
     ],
     "rules": {
       "semi": "off",
@@ -20,6 +21,7 @@
       "space-before-function-paren": "off",
       "comma-dangle": "off",
       "no-unused-vars": "off",
-      "import/no-duplicates": "off"
+      "import/no-duplicates": "off",
+      "no-undef":"off"
     }
 }

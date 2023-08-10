@@ -28,6 +28,7 @@ export function MainHeader() {
         </Grid>
       </div>
       <Modal
+        id="modal"
         open={open}
         className="max-w-2xl flex items-center justify-center m-auto">
         <CreateEvent onClose={() => setOpen(false)} />
