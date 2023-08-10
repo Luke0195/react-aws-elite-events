@@ -4,7 +4,7 @@ import { useState } from 'react'
 export function eventUseCase() {
   const [events, setEvents] = useState<Event[]>([])
 
-  const createEventUseCase = (event: Event) => {
+  const addEvent = (event: Event): void => {
     const copyEvents = Array.from(events)
     const findElement = copyEvents.findIndex(
       (item) => item.eventId === event.eventId
@@ -19,6 +19,6 @@ export function eventUseCase() {
   return {
     events,
     setEvents,
-    createEventUseCase,
+    addEvent,
   }
 }

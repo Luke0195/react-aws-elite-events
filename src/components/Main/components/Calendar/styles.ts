@@ -3,7 +3,8 @@ import ReactCalendar from 'react-calendar'
 
 export const StyledCalendar = styled(ReactCalendar)`
   border: 0;
-  width: auto;
+  width: 500px;
+  border: 1px solid #ccc;
 
   .react-calendar {
     font-family: Arial, Helvetica, sans-serif;
