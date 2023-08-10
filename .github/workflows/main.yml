@@ -28,6 +28,8 @@ jobs:
    needs: prepare_setup
    runs-on: ubuntu-latest
    steps:
+    - name: Install Dependencies
+      run: npm install
     - name: Run unit Test
       run: npm run test
        
@@ -35,6 +37,8 @@ jobs:
    needs: unit_test
    runs-on: ubuntu-latest
    steps:
+    - name: Install Dependencies
+      run: npm install
     - name: npm run build
       run: npm run build
 
