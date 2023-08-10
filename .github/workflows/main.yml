@@ -28,6 +28,9 @@ jobs:
    needs: ['setup']
    runs-on: ubuntu-latest
    steps:
+   - uses: actions/checkout@v3
+   - name: use Node 
+     uses: actions/setup-node@v3
    - name: build
      run: npm run build
    
