@@ -27,11 +27,17 @@ jobs:
   unit_test:
    needs: prepare_setup
    runs-on: ubuntu-latest
+   
    steps:
-    - name: Install Dependencies
-      run: npm install
-    - name: Run unit Test
-      run: npm run test
+   - name: Use Node.js ${{ matrix.node-version }}
+     uses: actions/setup-node@v3
+     with:
+      node-version: 18
+      cache: 'npm'
+   - name: Install Dependencies
+     run: npm install
+   - name: Run unit Test
+     run: npm run test
        
   make_build:
    needs: unit_test
