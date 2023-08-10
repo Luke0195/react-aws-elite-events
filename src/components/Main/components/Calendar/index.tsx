@@ -1,9 +1,9 @@
 import * as S from './styles'
 import moment from 'moment'
 import { useContext } from 'react'
-import 'react-calendar/dist/Calendar.css'
 import { MainContext } from '../../context'
 import { eventTypes } from './options'
+
 export function Calendar() {
   const {
     eventUseCases: { events },
@@ -27,7 +27,7 @@ export function Calendar() {
         }
         return 'default'
       }}
-      formatShortWeekday={(locale, date) => {
+      formatShortWeekday={(date) => {
         return moment(date).format('ddd').charAt(0)
       }}
       selectRange={false}

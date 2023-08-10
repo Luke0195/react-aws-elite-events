@@ -6,9 +6,10 @@ export function parsedData(event: EventProps): EventProps {
   return {
     eventId: event.eventId,
     eventName: notEmptyStringOfDefault(event.eventName),
-    eventDate: notEmptyStringOfDefault(
-      moment(event.eventDate).format('DD/MM/YYYY hh:MM:ss')
-    ),
+    eventDate:
+      event.eventDate !== null
+        ? moment(event.eventDate).format('DD/MM/YYYY hh:MM:ss')
+        : '-',
     eventType: numberOrDefault(event.eventType),
   }
 }

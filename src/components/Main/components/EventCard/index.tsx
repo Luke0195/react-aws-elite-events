@@ -14,7 +14,7 @@ export function EventCard(props: EventCardProps) {
   const parsed = parsedData(event)
   return (
     <S.Container
-      cardColor={getCurrentCardType(numberOrDefault(event.eventType))}>
+      cardColor={getCurrentCardType(numberOrDefault(event.eventType) || 1)}>
       <div>
         <strong>Event name: {parsed.eventName} </strong>
       </div>

@@ -2,6 +2,7 @@ import { EventCard } from './index'
 import { render } from '@testing-library/react'
 import { faker } from '@faker-js/faker'
 import { parsedData } from './shared/mapper'
+import { Context } from '../../context'
 
 describe('EventCard Component', () => {
   it('Should render a empty string if no eventName is provided', () => {
@@ -13,7 +14,11 @@ describe('EventCard Component', () => {
     }
 
     const parsed = parsedData(event)
-    render(<EventCard event={parsed} />)
+    render(
+      <Context>
+        <EventCard event={parsed} />
+      </Context>
+    )
     expect(parsed.eventName).toBe('-')
   })
 
@@ -26,7 +31,11 @@ describe('EventCard Component', () => {
     }
 
     const parsed = parsedData(event)
-    render(<EventCard event={parsed} />)
+    render(
+      <Context>
+        <EventCard event={parsed} />
+      </Context>
+    )
     expect(parsed.eventDate).toBe('-')
   })
 
@@ -38,7 +47,11 @@ describe('EventCard Component', () => {
       eventType: null,
     }
     const parsed = parsedData(event)
-    render(<EventCard event={parsed} />)
+    render(
+      <Context>
+        <EventCard event={parsed} />
+      </Context>
+    )
     expect(parsed.eventType).toBe(0)
   })
 })

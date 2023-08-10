@@ -1,16 +1,24 @@
 import { render, screen } from '@testing-library/react'
-
+import { Context } from '../../../../../context'
 import { Form } from './index'
 
 describe('Form Component', () => {
   it('Should render Heading with correct value', () => {
-    render(<Form onClose={() => {}} />)
+    render(
+      <Context>
+        <Form onClose={() => {}} />
+      </Context>
+    )
     const heading = screen.getByRole('heading', { level: 2 })
     expect(heading.innerHTML).toBe('Create New Event')
   })
 
   it('Should start with form initial values', () => {
-    render(<Form onClose={() => {}} />)
+    render(
+      <Context>
+        <Form onClose={() => {}} />
+      </Context>
+    )
     const eventName = screen.getByPlaceholderText(
       'Enter with event name'
     ) as HTMLInputElement
