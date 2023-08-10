@@ -1,8 +1,17 @@
 import { EventCard } from './index'
-import { render } from '@testing-library/react'
+import { render, RenderResult } from '@testing-library/react'
 import { faker } from '@faker-js/faker'
 import { parsedData } from './shared/mapper'
 import { Context } from '../../context'
+import { EventProps } from './shared/protocols'
+
+const makeSut = (parsed: EventProps): RenderResult => {
+  return render(
+    <Context>
+      <EventCard event={parsed} />
+    </Context>
+  )
+}
 
 describe('EventCard Component', () => {
   it('Should render a empty string if no eventName is provided', () => {
@@ -14,11 +23,7 @@ describe('EventCard Component', () => {
     }
 
     const parsed = parsedData(event)
-    render(
-      <Context>
-        <EventCard event={parsed} />
-      </Context>
-    )
+    makeSut(parsed)
     expect(parsed.eventName).toBe('-')
   })
 
@@ -31,11 +36,7 @@ describe('EventCard Component', () => {
     }
 
     const parsed = parsedData(event)
-    render(
-      <Context>
-        <EventCard event={parsed} />
-      </Context>
-    )
+    makeSut(parsed)
     expect(parsed.eventDate).toBe('-')
   })
 
@@ -47,11 +48,7 @@ describe('EventCard Component', () => {
       eventType: null,
     }
     const parsed = parsedData(event)
-    render(
-      <Context>
-        <EventCard event={parsed} />
-      </Context>
-    )
+    makeSut(parsed)
     expect(parsed.eventType).toBe(0)
   })
 })
