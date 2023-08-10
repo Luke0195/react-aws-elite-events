@@ -29,9 +29,9 @@ jobs:
       uses: cypress-io/github-action@v5.8.2
       with:
         config-file: ./cypress.json
-        command: test:cypress
+        command: npm run  test:cypress
         install: npm install
         install-command: npm install
-        runTests: test:cypress
+        runTests: npm run test:cypress
         wait-on-timeout: 4000
         
