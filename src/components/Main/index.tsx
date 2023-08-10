@@ -1,6 +1,4 @@
-import { MainHeader, EventCard } from './components'
-import ReactCalendar from 'react-calendar'
-import 'react-calendar/dist/Calendar.css'
+import { MainHeader, EventCard, Calendar } from './components'
 
 import * as S from './styles'
 import { data } from './mocks/events.json'
@@ -18,8 +16,8 @@ export function Main() {
               ))}
             </div>
           </div>
-          <div className="h-full bg-blue-400 flex-1 flex items-center justify-center">
-            <ReactCalendar />
+          <div className="h-full flex-1 flex items-center justify-center">
+            <Calendar />
           </div>
         </div>
       </div>
