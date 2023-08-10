@@ -6,7 +6,7 @@ on:
  
 
 jobs:
-  build:
+  prepare_setup:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -23,8 +23,18 @@ jobs:
       run: npm install
     - name: Lint Code
       run: npm run lint
-    - name: Run unit test
+      
+  unit_test:
+   needs: prepare_setup
+   runs-on: ubuntu-latest
+   steps:
+    - name: Run unit Test
       run: npm run test
-    - name: Make build
-      run: npm run build
        
+  make_build:
+   needs: unit_test
+   runs-on: ubuntu-latest
+   steps:
+    - name: npm run build
+      run: npm run build
+
