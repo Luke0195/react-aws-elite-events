@@ -72,4 +72,21 @@ export const StyledCalendar = styled(ReactCalendar)`
     background-color: #3455ab;
     transform: rotate(40deg);
   }
+
+  .event_type0 {
+    color: green;
+    background-color: #fff;
+  }
+  .event_type1 {
+    color: #fff;
+    background-color: yellow;
+  }
+  .event_type2 {
+    color: #fff;
+    background-color: red;
+  }
+  .event_type3 {
+    color: #fff;
+    background-color: gray;
+  }
 `

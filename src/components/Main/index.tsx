@@ -7,7 +7,7 @@ export function Main() {
   const {
     eventUseCases: { events },
   } = useContext(MainContext)
-  console.log('events', events)
+
   return (
     <S.Container>
       <div className="flex-1 flex flex-col  px-32   overflow-hidden ">
