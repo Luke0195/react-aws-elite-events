@@ -28,8 +28,9 @@ jobs:
   build: 
    needs: setup
    runs-on: ubuntu-latest
-   steps:
-    - name: build
-      run: npm run build
+   steps: 
+   - uses: actions/setup-node@v3
+   - name: build
+     run: npm run build
     
         
