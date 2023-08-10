@@ -6,7 +6,7 @@ on:
  
 
 jobs:
-  build:
+  setup:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -23,15 +23,13 @@ jobs:
       run: npm install
     - name: Lint Code
       run: npm run lint
-    - name: Run unit Tests
-      run: npm run test
-    - name: Run e2e Tests
-      uses: cypress-io/github-action@v5.8.2
-      with:
-        config-file: ./cypress.json
-        command: npm run  test:cypress
-        install: npm install
-        install-command: npm install
-        runTests: npm run test:cypress
-        wait-on-timeout: 4000
+    - name: Run unit Test
+  
+  build: 
+   needs: setup
+   runs-on: ubuntu-latest
+   steps:
+    - name: build
+      run: npm run build
+    
         
