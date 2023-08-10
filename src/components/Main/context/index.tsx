@@ -11,7 +11,9 @@ interface MainContextProps {
   }
 }
 
-const MainContext = createContext<MainContextProps>({} as MainContextProps)
+export const MainContext = createContext<MainContextProps>(
+  {} as MainContextProps
+)
 
 export function Context({ children }: any) {
   return (

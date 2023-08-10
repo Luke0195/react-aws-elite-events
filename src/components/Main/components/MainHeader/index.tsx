@@ -5,7 +5,7 @@ import AddIcon from '@mui/icons-material/Add'
 
 export function MainHeader() {
   const [open, setOpen] = useState<boolean>(false)
-  console.log(open)
+
   return (
     <>
       <div className="mt-4 w-full  flex justify-center ">

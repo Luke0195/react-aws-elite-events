@@ -1,19 +1,24 @@
+import { CreateEventProps } from '@/components/Main/components/Modal/CreateEvent/shared/protocols'
+import { MainContext } from '@/components/Main/context'
 import {
   SelectRoot,
   InputRoot,
   WarningMessageRoot,
   ButtonRoot,
 } from '@/components'
-import { CreateEventProps } from '../../shared/protocols'
 import { EventData } from './protocols'
-
 import { schema } from './schema'
 import { parsedData } from './mapper'
+import { useContext } from 'react'
+import { v4 } from 'uuid'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as S from '../../styles'
 
 export function Form(props: CreateEventProps) {
+  const {
+    eventUseCases: { addEvent },
+  } = useContext(MainContext)
   const { onClose } = props
   const {
     register,
@@ -32,7 +37,13 @@ export function Form(props: CreateEventProps) {
   ]
 
   const onSubmit = (data: EventData) => {
-    console.log(data)
+    const payload = {
+      eventId: v4(),
+      eventName: data.event_name,
+      eventType: parseInt(data.event_type),
+      eventDate: data.event_date,
+    }
+    addEvent(payload)
     onClose()
   }
 

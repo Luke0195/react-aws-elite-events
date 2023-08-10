@@ -1,11 +1,14 @@
 import { Header, Main } from '@/components'
+import { Context } from '@/components/Main/context'
 import * as S from './styles'
 
 export function App() {
   return (
-    <S.Container>
-      <Header />
-      <Main />
-    </S.Container>
+    <Context>
+      <S.Container>
+        <Header />
+        <Main />
+      </S.Container>
+    </Context>
   )
 }
