@@ -6,7 +6,7 @@ on:
  
 
 jobs:
-  prepare_setup:
+  build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -23,28 +23,15 @@ jobs:
       run: npm install
     - name: Lint Code
       run: npm run lint
-      
-  unit_test:
-   needs: prepare_setup
-   runs-on: ubuntu-latest
-   
-   steps:
-   - name: Use Node.js ${{ matrix.node-version }}
-     uses: actions/setup-node@v3
-     with:
-      node-version: 18
-      cache: 'npm'
-   - name: Install Dependencies
-     run: npm install
-   - name: Run unit Test
-     run: npm run test
-       
-  make_build:
-   needs: unit_test
-   runs-on: ubuntu-latest
-   steps:
-    - name: Install Dependencies
-      run: npm install
-    - name: npm run build
-      run: npm run build
-
+    - name: Run unit Tests
+      run: npm run test
+    - name: Run e2e Tests
+      uses: cypress-io/github-action@v5.8.2
+      with:
+        config-file: ./cypress.json
+        command: test:cypress
+        install: npm install
+        install-command: npm install
+        runTests: test:cypress
+        wait-on-timeout: 4000
+        
