@@ -23,8 +23,14 @@ jobs:
       run: npm install
     - name: Lint Code
       run: npm run lint
-    - name: Run unit Test
-      run: npm run test
+      
+  unit_test: 
+   needs: ['setup']
+   runs-on: ubuntu-latest
+   steps:
+   - uses: actions/checkout@v3
+   - name: Run unit tests
+     run: npm run test
   
   build: 
    needs: ['setup']
