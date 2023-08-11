@@ -39,14 +39,15 @@ jobs:
    runs-on: ubuntu-latest
    steps:
    - uses: actions/checkout@v3
-   - name: Jest coverage report
-     uses: ArtiomTr/jest-coverage-report-action@v2.2.4
+   - name: Jest Coverage Commenter
+     uses: dkershner6/jest-coverage-commenter-action@v1
      with:
-       github-token:  ${{ github.token }}
-       coverage-file: coverage/coverage-final.json
-       test-script: npm test:ci
-       working-directory: ./
-   
+     # A GitHub Token, the standard one is great
+     ##github_token: 
+     # The test command to run, that also runs coverage appropriately
+      test_command: npm run test:ci
+      reporter: text
+    # A message desired to be shown before the code coverage report
 
 
   teste2e:
