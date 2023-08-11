@@ -36,23 +36,15 @@ jobs:
  
   teste2e:
    needs: ['unit_test']
-   runs-on: ubuntu-latest
+   runs-on: ubuntu-latest 
    steps:
-    - name: tests e2e
-    - uses: actions/checkout@v3
-    - name: Install dependencies
-      run: npm install
-    - name: Cypress run
-      uses: cypress-io/github-action@v5
-      with:
-        build: npm run build
-        start: npm run dev
-    - name: Cypress run
-      uses: cypress-io/github-action@v5
-      with:
-       build: npm run build
-       start: npm start
-       browser: chrome
+   - name: Cypress.io
+     uses: cypress-io/github-action@v5.8.2
+     with:
+      build: npm run build
+      start: npm start
+      browser: chrome
+    
  
   
   build: 
