@@ -32,7 +32,21 @@ jobs:
    - name: Install Dependencies
      run: npm install
    - name: Run unit tests
-     run: npm run test:ci
+     run: npm run test
+     
+  unit_test_coverage:
+   needs: ['unit_test'] 
+   runs-on: ubuntu-latest
+   steps:
+   - uses: actions/checkout@v3
+   - name: Jest coverage report
+     uses: ArtiomTr/jest-coverage-report-action@v2.2.4
+     with:
+       github-token:  ${{ github.token }}
+       test-script: npm test:ci
+       working-directory: ./src
+   
+
 
   teste2e:
    needs: ['unit_test']
