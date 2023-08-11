@@ -56,7 +56,7 @@ jobs:
  
   
   build: 
-   needs: ['unit_test']
+   needs: ['teste2e']
    runs-on: ubuntu-latest
    steps:
    - uses: actions/checkout@v3
