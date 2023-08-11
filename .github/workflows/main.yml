@@ -39,6 +39,15 @@ jobs:
    runs-on: ubuntu-latest
    steps:
    - uses: actions/checkout@v3
+   - uses: actions/checkout@v3
+   - name: Use Node.js ${{ matrix.node-version }}
+     uses: actions/setup-node@v3
+     with:
+      node-version: 18
+      cache: 'npm'
+      cache-dependency-path: ./package-lock.json
+   - name: Install dependencies
+     run: npm install
    - name: Jest Coverage Commenter
      uses: dkershner6/jest-coverage-commenter-action@v1
      with:
