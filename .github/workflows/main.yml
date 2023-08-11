@@ -55,8 +55,6 @@ jobs:
       github_token: ${{secrets.USER_TOKEN}} 
      # The test command to run, that also runs coverage appropriately
       test_command: npm run test:ci
-      reporter: text
-    # A message desired to be shown before the code coverage report
 
 
   teste2e:
