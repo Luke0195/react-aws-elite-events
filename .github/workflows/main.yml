@@ -43,7 +43,7 @@ jobs:
      uses: dkershner6/jest-coverage-commenter-action@v1
      with:
      # A GitHub Token, the standard one is great
-     ##github_token: 
+      github_token: ${{secrets.USER_TOKEN}} 
      # The test command to run, that also runs coverage appropriately
       test_command: npm run test:ci
       reporter: text
