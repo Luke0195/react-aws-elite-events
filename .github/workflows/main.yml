@@ -34,31 +34,9 @@ jobs:
    - name: Run unit tests
      run: npm run test:ci
      
-  unit_test_coverage:
-   needs: ['unit_test'] 
-   runs-on: ubuntu-latest
-   steps:
-   - uses: actions/checkout@v3
-   - uses: actions/checkout@v3
-   - name: Use Node.js ${{ matrix.node-version }}
-     uses: actions/setup-node@v3
-     with:
-      node-version: 18
-      cache: 'npm'
-      cache-dependency-path: ./package-lock.json
-   - name: Install dependencies
-     run: npm install
-   - name: Jest coverage report
-     uses: ArtiomTr/jest-coverage-report-action@v2.2.4
-     with:
-      github-token: ${{secrets.USER_TOKEN}}
-      test-script: npm run test:ci
-      working-directory: ./
-      package-manager: npm
-      coverage-file: coverage-final.json
 
   teste2e:
-   needs: ['unit_test_coverage']
+   needs: ['unit_test']
    runs-on: ubuntu-latest
    steps:
    - uses: actions/checkout@v3
