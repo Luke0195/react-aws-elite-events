@@ -3,7 +3,7 @@ name: CI
 on:
   push:
     branches: [ "main" ]
- 
+
 
 jobs:
   setup:
@@ -23,8 +23,8 @@ jobs:
       run: npm install
     - name: Lint Code
       run: npm run lint
-      
-  unit_test: 
+
+  unit_test:
    needs: ['setup']
    runs-on: ubuntu-latest
    steps:
@@ -32,11 +32,11 @@ jobs:
    - name: Install Dependencies
      run: npm install
    - name: Run unit tests
-     run: npm run test
- 
+     run: npm run test:ci
+
   teste2e:
    needs: ['unit_test']
-   runs-on: ubuntu-latest 
+   runs-on: ubuntu-latest
    steps:
    - uses: actions/checkout@v3
    - name: Use Node.js ${{ matrix.node-version }}
@@ -53,10 +53,10 @@ jobs:
       build: npm run build
       start: npm run dev
       browser: chrome
-    
- 
-  
-  build: 
+
+
+
+  build:
    needs: ['teste2e']
    runs-on: ubuntu-latest
    steps:
@@ -65,8 +65,8 @@ jobs:
      run: npm install
    - name: build
      run: npm run build
-   
-  
-  
-    
-        
+
+
+
+
+

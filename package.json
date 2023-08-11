@@ -10,6 +10,7 @@
     "dev:expose": "npm run dev -- -- host",
     "preview": "vite preview",
     "test": "jest",
+    "test:ci": "npm test -- --coverage",
     "test:cypress": "npx run cypress",
     "prepare": "husky install"
   },
