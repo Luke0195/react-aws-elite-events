@@ -48,14 +48,14 @@ jobs:
       cache-dependency-path: ./package-lock.json
    - name: Install dependencies
      run: npm install
-   - name: Jest Code Coverage Report
-     uses: ziishaned/jest-reporter-action@0.1.1
+   - name: Jest coverage report
+     uses: ArtiomTr/jest-coverage-report-action@v2.2.4
      with:
-    # Github token
-      github-token: ${{secrets.USER_TOKEN}} 
-      # Specify a command to run the tests
-      test-command: npm run test:ci
-
+      github-token: ${{secrets.USER_TOKEN}}
+      test-script: npm run test:ci
+      working-directory: ./
+      package-manager: npm
+      coverage-file: coverage-final.json
 
   teste2e:
    needs: ['unit_test_coverage']
