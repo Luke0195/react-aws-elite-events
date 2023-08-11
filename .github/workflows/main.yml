@@ -45,7 +45,7 @@ jobs:
        github-token:  ${{ github.token }}
        coverage-file: ./coverage/coverage-final.json
        test-script: npm test:ci
-       working-directory: ./src
+       working-directory: ./
    
 
 
