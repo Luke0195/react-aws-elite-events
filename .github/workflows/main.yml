@@ -48,11 +48,13 @@ jobs:
       cache-dependency-path: ./package-lock.json
    - name: Install dependencies
      run: npm install
-   - name: Jest Coverage Commenter
-     uses: dkershner6/jest-coverage-commenter-action@v1
+   - name: Jest Code Coverage Report
+     uses: ziishaned/jest-reporter-action@0.1.1
      with:
-      github_token: ${{secrets.USER_TOKEN}} 
-      test_command: npm run test:ci
+    # Github token
+      github-token: ${{secrets.USER_TOKEN}} 
+      # Specify a command to run the tests
+      test-command: npm run test:ci
 
 
   teste2e:
