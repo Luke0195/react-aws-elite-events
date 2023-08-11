@@ -33,7 +33,7 @@ jobs:
      run: npm run test
   
   build: 
-   needs: ['setup']
+   needs: ['unit_test']
    runs-on: ubuntu-latest
    steps:
    - uses: actions/checkout@v3
