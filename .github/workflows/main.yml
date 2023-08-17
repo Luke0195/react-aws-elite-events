@@ -34,28 +34,19 @@ jobs:
      run: npm install
    - name: Run unit tests
      run: npm run test:ci
-   - name: Generage Coverage
-     uses: codecov/codecov-action@v3.1.4
+   - name: Make coverage
+     uses: luk-schweizer/jest-code-coverage-badge-action@v1.0.1
      with:
-      token: ${{secrets.USER_TOKEN}}
-      file: ./coverage
-    # Comma-separated list of files to upload
-    # Directory to search for coverage reports.
-      directory: ./coverage
-    # Specify the path of a full Codecov report to re-upload
-    #full_report: # optional
-    # The commit SHA of the parent for which you are uploading coverage. If not present, the parent will be determined using the API of your repository provider.  When using the repository providers API, the parent is determined via finding the closest ancestor to the commit.
-   # commit_parent: # optional
-  #  # Don't upload files to Codecov
-   # dry_run: # optional
-    # Environment variables to tag the upload with (e.g. PYTHON | OS,PYTHON)
-    #env_vars: # optional
-    # Specify whether or not CI build should fail if Codecov runs into an error during upload
-    #fail_ci_if_error: # optional
-    # Comma-separated list, see the README for options and their usage. Options include `network`, `fixes`, `search`.
-   # functionalities: # optional
-    # Run with gcov support
-    #gcov: # optional
+       test-command: npm run test:ci
+      # coverage-type: # optional, default is statements
+      # Label for the badge
+       badge-label: coverage
+      # Show jest logo
+     #  badge-logo: # optional, default is true
+      # Configuration for the badge colors depending on the code coverage percentage
+     #  badge-color-configuration: # optional, default is [{"color": "red", ">=": 0, "<": 30 }, {"color": "orange", ">=": 30, "<": 40 },{"color": "yellow", ">=": 40, "<": 60 },{"color": "yellowgreen", ">=": 60, "<": 70 },{"color": "green", ">=": 70, "<": 90 },{"color": "brightgreen", ">=": 90, "<=": 100 }]
+      # KVaaS key url where to post coverage values. If not present the action will generate a new url. More info in https://keyvalue.xyz
+     #  kvaas-key-url: # optional
 
   teste2e:
    needs: ['unit_test']
