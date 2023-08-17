@@ -34,19 +34,6 @@ jobs:
      run: npm install
    - name: Run unit tests
      run: npm run test:ci
-   - name: Make coverage
-     uses: luk-schweizer/jest-code-coverage-badge-action@v1.0.1
-     with:
-       test-command: npm run test:ci
-      # coverage-type: # optional, default is statements
-      # Label for the badge
-       badge-label: coverage
-      # Show jest logo
-     #  badge-logo: # optional, default is true
-      # Configuration for the badge colors depending on the code coverage percentage
-     #  badge-color-configuration: # optional, default is [{"color": "red", ">=": 0, "<": 30 }, {"color": "orange", ">=": 30, "<": 40 },{"color": "yellow", ">=": 40, "<": 60 },{"color": "yellowgreen", ">=": 60, "<": 70 },{"color": "green", ">=": 70, "<": 90 },{"color": "brightgreen", ">=": 90, "<=": 100 }]
-      # KVaaS key url where to post coverage values. If not present the action will generate a new url. More info in https://keyvalue.xyz
-     #  kvaas-key-url: # optional
 
   teste2e:
    needs: ['unit_test']
