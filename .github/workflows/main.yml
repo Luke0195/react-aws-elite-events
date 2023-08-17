@@ -37,7 +37,7 @@ jobs:
    - name: make coverage
      uses: RedaktionsNetzwerk-Deutschland/action-jest-reporter@v1.0.0
      with:
-      GITHUB_TOKEN: ${{secrets.USER_GIT}}
+      GITHUB_TOKEN: ${{secrets.USER_TOKEN}}
      
 
   teste2e:
