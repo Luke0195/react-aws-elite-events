@@ -1,4 +1,4 @@
-import * as formmaters from './index'
+import formmaters from './index'
 
 describe('Formatters', () => {
   it('Should return a string if a null value is provided', () => {

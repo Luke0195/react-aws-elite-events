@@ -18,7 +18,7 @@ describe('EventCard Component', () => {
     const event = {
       eventId: faker.number.int().toString(),
       eventName: null,
-      eventDate: faker.date.future().toString(),
+      eventDate: faker.date.toString(),
       eventType: faker.number.int({ min: 1, max: 4 }),
     }
 
@@ -44,7 +44,7 @@ describe('EventCard Component', () => {
     const event = {
       eventId: faker.number.int().toString(),
       eventName: `Event ${faker.music.songName()}`,
-      eventDate: faker.date.future().toString(),
+      eventDate: faker.date.toString(),
       eventType: null,
     }
     const parsed = parsedData(event)

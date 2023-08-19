@@ -1,9 +1,13 @@
-import { isString } from '../validators'
+import validators from '@/utils/validators'
 
-export function notEmptyStringOfDefault(value: any): string {
-  return isString(value) && value !== '' ? value.trim() : '-'
+class Formatters {
+  notEmptyStringOfDefault(value: any): string {
+    return validators.isString(value) && value !== '' ? value.trim() : '-'
+  }
+
+  numberOrDefault(value: any): number {
+    return value === null ? 0 : value
+  }
 }
 
-export function numberOrDefault(value: any): number {
-  return value === null ? 0 : value
-}
+export default new Formatters()

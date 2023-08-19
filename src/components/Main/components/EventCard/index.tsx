@@ -1,5 +1,6 @@
 import { getCurrentCardType } from './shared/options/eventStatusOptions'
-import { numberOrDefault } from '@/utils/formatters'
+import formatters from '@/utils/formatters'
+
 import { EventProps } from './shared/protocols'
 import { parsedData } from './shared/mapper'
 
@@ -14,7 +15,9 @@ export function EventCard(props: EventCardProps) {
   const parsed = parsedData(event)
   return (
     <S.Container
-      cardColor={getCurrentCardType(numberOrDefault(event.eventType) || 1)}>
+      cardColor={getCurrentCardType(
+        formatters.numberOrDefault(event.eventType) || 1
+      )}>
       <div>
         <strong>Event name: {parsed.eventName} </strong>
       </div>
