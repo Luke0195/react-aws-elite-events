@@ -8,7 +8,7 @@ export function parsedData(event: EventProps): EventProps {
     eventName: formatters.notEmptyStringOfDefault(event.eventName),
     eventDate:
       event.eventDate !== null
-        ? moment(event.eventDate).format('DD/MM/YYYY hh:MM:ss')
+        ? moment(new Date(event.eventDate)).format('dd/MM/yyyy hh:MM:ss')
         : '-',
     eventType: formatters.numberOrDefault(event.eventType),
   }
