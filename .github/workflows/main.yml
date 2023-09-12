@@ -24,7 +24,11 @@ jobs:
       run: npm install
     - name: Lint Code
       run: npm run lint
-
+    - name: Run sonarQube Scan
+      uses: SonarSource/sonarqube-scan-action@v2.0.1
+      with:
+         projectBaseDir: ./src
+         
   unit_test:
    needs: ['setup']
    runs-on: ubuntu-latest
