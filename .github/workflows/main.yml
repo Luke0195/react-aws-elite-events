@@ -27,7 +27,7 @@ jobs:
     - name: Run sonarQube Scan
       uses: SonarSource/sonarqube-scan-action@v2.0.1
       with:
-         projectBaseDir: ./src
+         projectBaseDir: src
          
   unit_test:
    needs: ['setup']
